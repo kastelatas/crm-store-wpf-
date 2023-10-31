@@ -7,6 +7,52 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
-        <Label>Ingridients</Label>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="110"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Width="350" Margin="15, 0, 0, 0">
+            <Label Content="Название ингредиента"   Margin="0, 25, 0, 0" FontSize="14" FontWeight="Medium"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBox Text="{Binding IngridientName}" Width="150"  FontSize="14"  Margin="0, 0, 20, 0" />
+                <Button Content="Добавить" Command="{Binding AddIngridientCommand}"/>
+            </StackPanel>
+        </StackPanel>
+        <DataGrid x:Name="customTable" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding IngridientNames}" Margin="0,0, 0, 10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="#"  IsReadOnly="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding ID}" VerticalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Название" MinWidth="120" IsReadOnly="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*" MaxWidth="150">
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="Действие"  TextAlignment="Center" VerticalAlignment="Center"/>
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Удалить" Command="{Binding DataContext.RemoveIngridientCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

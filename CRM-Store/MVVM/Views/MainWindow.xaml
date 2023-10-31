@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRM_Store"
         xmlns:viewModel="clr-namespace:CRM_Store.MVVM.ViewModels"
-       xmlns:materialIcons="clr-namespace:Material.Icons.WPF;assembly=Material.Icons.WPF"
+        xmlns:materialIcons="clr-namespace:Material.Icons.WPF;assembly=Material.Icons.WPF"
         mc:Ignorable="d"
         ResizeMode="CanResize"
         Title="CRM Store" Height="650" Width="1200">
@@ -42,6 +42,14 @@
                                 <TextBlock Text="Меню" VerticalAlignment="Center" Margin="12, 0, 0, 0"/>
                             </StackPanel>
                         </ListBoxItem.Content>
+                    </ListBoxItem>
+                    <ListBoxItem Tag="storage" Foreground="#4a4a4a" FontSize="14" Padding="15">
+                    <ListBoxItem.Content>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <materialIcons:MaterialIcon Kind="Store" FontSize="16" />
+                            <TextBlock Text="Склад " VerticalAlignment="Center" Margin="12, 0, 0, 0"/>
+                        </StackPanel>
+                    </ListBoxItem.Content>
                     </ListBoxItem>
                     <ListBoxItem Tag="ingridients" Foreground="#4a4a4a" FontSize="14" Padding="15">
                         <ListBoxItem.Content>

@@ -1,5 +1,7 @@
 ﻿using CRM_Store.Core.Infastructure.Commands;
+using CRM_Store.MVVM.Models;
 using CRM_Store.MVVM.ViewModels.Base;
+using CRM_Store.MVVM.Views.Popups;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,10 @@ namespace CRM_Store.MVVM.ViewModels
         #region Variables
         public CalculatorViewModel CalculatorVM { get; set; }
         public MenuViewModel MenuVM { get; set; }
+        public IngridientsViewModel IngridientsVM { get; set; }
+        public ClientsViewModel ClientsVM { get; set; }
+        public OrdersViewModel OrdersVM { get; set; }
+        public StorageViewModel StorageVM { get; set; }
 
         private string selectedMenuItem;
         public string SelectedMenuItem
@@ -53,6 +59,10 @@ namespace CRM_Store.MVVM.ViewModels
             {
                 { "menu", MenuVM },
                 { "calc", CalculatorVM },
+                { "ingridients", IngridientsVM },
+                { "clients", ClientsVM },
+                { "storage", StorageVM },
+                { "orders", OrdersVM },
             };
 
             if (menu.ContainsKey(selectedMenuItem))
@@ -61,12 +71,19 @@ namespace CRM_Store.MVVM.ViewModels
             }
         }
         private bool CanChangeScreenCommand(object p) => true;
+
         #endregion
 
         public MainViewModel() 
         {
             MenuVM = new MenuViewModel();
             CalculatorVM = new CalculatorViewModel();
+            IngridientsVM = new IngridientsViewModel();
+            StorageVM = new StorageViewModel();
+            OrdersVM = new OrdersViewModel();
+            ClientsVM = new ClientsViewModel();
+
+            CurrentView = MenuVM;
 
             ChangeScreenCommand = new LambdaCommand(OnChangeScreenCommandExecuted, CanChangeScreenCommand);
         }

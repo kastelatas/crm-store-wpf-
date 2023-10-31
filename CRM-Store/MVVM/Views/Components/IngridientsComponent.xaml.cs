@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRM_Store.MVVM.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,12 @@ namespace CRM_Store.MVVM.Views.Components
     /// </summary>
     public partial class IngridientsComponent : UserControl
     {
+        private IngridientsViewModel _ingridientsViewModel;
         public IngridientsComponent()
         {
+            _ingridientsViewModel = new IngridientsViewModel();
+            DataContext = _ingridientsViewModel;
+
             InitializeComponent();
         }
     }

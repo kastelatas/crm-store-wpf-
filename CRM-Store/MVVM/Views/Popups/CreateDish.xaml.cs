@@ -1,5 +1,4 @@
 ﻿using CRM_Store.MVVM.ViewModels;
-using CRM_Store.MVVM.Views.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,23 +11,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CRM_Store.MVVM.Views.Components
+namespace CRM_Store.MVVM.Views.Popups
 {
     /// <summary>
-    /// Interaction logic for MenuComponent.xaml
+    /// Interaction logic for CreateDish.xaml
     /// </summary>
-    public partial class MenuComponent : UserControl
+    public partial class CreateDish : Window
     {
 
-        private MenuViewModel _menuViewModel;
-
-        public MenuComponent()
+        private CreateDishViewModel _createDishViewModel;
+        public CreateDish()
         {
-            _menuViewModel = new MenuViewModel();
-            DataContext = _menuViewModel;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            _createDishViewModel = new CreateDishViewModel();
+            DataContext = _createDishViewModel;
+
             InitializeComponent();
         }
     }

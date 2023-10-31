@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace CRM_Store.MVVM.Models
 {
-    public class CalculatorTableItem
+    class IngridientName
     {
+        public int ID { get; set; }
         public string Name { get; set; }
-        public string Quantity { get; set; }
-        public string QuantityUnit { get; set; }
-        public string Price { get; set; }
     }
 }

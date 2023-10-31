@@ -20,6 +20,18 @@
             <DataTemplate DataType="{x:Type viewModel:CalculatorViewModel}">
                 <view:CalculatorComponent/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:IngridientsViewModel}">
+                <view:IngridientsComponent/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:StorageViewModel}">
+                <view:StorageComponent/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:OrdersViewModel}">
+                <view:OrdersComponent/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ClientsViewModel}">
+                <view:ClientsComponent/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
